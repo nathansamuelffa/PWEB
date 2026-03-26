@@ -1,0 +1,85 @@
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    color: #121212;
+}
+
+.divider { border-top: 1px solid #000; margin: 10px 0; }
+.divider-double { border-top: 4px double #000; margin: 10px 0; }
+
+.main-header {
+    text-align: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.main-header h1 {
+    font-size: 3.5rem;
+    margin: 0;
+    letter-spacing: -2px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    text-transform: uppercase;
+    font-family: Arial, sans-serif;
+    font-size: 0.75rem;
+    font-weight: bold;
+}
+
+/* Layout Grid */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+}
+
+.main-content { grid-column: span 3; }
+.sidebar { grid-column: span 1; border-left: 1px solid #ebebeb; padding-left: 20px; }
+
+/* Tipografia */
+.headline { font-size: 2.8rem; line-height: 1.1; margin: 0 0 10px 0; }
+.author { font-size: 0.85rem; color: #666; margin-bottom: 20px; }
+.main-image img { width: 100%; height: auto; }
+.article-body p { font-size: 1.2rem; line-height: 1.6; margin-bottom: 20px; }
+
+/* Links e Botão */
+.news-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.news-link:hover {
+    text-decoration: underline;
+}
+
+.quiz-box { background-color: #f3f3f3; padding: 20px; margin-top: 40px; }
+.btn-quiz {
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.main-footer {
+    max-width: 1200px;
+    margin: 40px auto;
+    text-align: center;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 900px) {
+    .container { grid-template-columns: 1fr; }
+    .main-content, .sidebar { grid-column: span 1; }
+    .sidebar { border-left: none; border-top: 1px solid #ebebeb; padding-top: 20px; }
+}
