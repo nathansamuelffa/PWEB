@@ -1,0 +1,73 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    font-family: sans-serif;
+}
+
+/* A DIV de 500x500 */
+.caixa {
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border: 4px solid #333;
+    transition: all 0.3s ease;
+}
+
+@media (max-width: 500px) {
+    .caixa {
+        width: 90vw; /* 90% da largura da tela */
+        height: 90vw; /* Mantém quadrada */
+    }
+}
+
+h2 {
+    font-size: 1.8rem;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* --- REGRAS DE MEDIA QUERIES --- */
+
+@media (max-width: 420px) {
+    .caixa { background-color: #1e4d58; }
+    h2::before { content: "Cinza Escuro (Até 420px)"; }
+}
+
+@media (min-width: 421px) and (max-width: 768px) {
+    .caixa { background-color: #e69138; }
+    h2::before { content: "Laranja (421px - 768px)"; }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+    .caixa { background-color: #ff00ff; }
+    h2::before { content: "Rosa (769px - 1024px)"; }
+}
+
+@media (min-width: 1025px) and (max-width: 1080px) {
+    .caixa { background-color: #e06666; }
+    h2::before { content: "Coral (1025px - 1080px)"; }
+}
+
+@media (min-width: 1081px) and (max-width: 1366px) {
+    .caixa { background-color: #674ea7; }
+    h2::before { content: "Roxo (1081px - 1366px)"; }
+}
+
+@media (min-width: 1367px) and (max-width: 1920px) {
+    .caixa { background-color: #f1c232; }
+    h2::before { content: "Amarelo (1367px - 1920px)"; color: #333; }
+}
+
+@media (min-width: 1921px) {
+    .caixa { background-color: #27ae60; }
+    h2::before { content: "Verde (Maior que 1920px)"; }
+}
