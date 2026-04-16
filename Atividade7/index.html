@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 7: Pedra, papel ou tesoura</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="container">
+        <header>
+            <h1>Desafiando Brendan Eich</h1>
+            <p class="subtitulo">Você vs. aleatoriedade do <code>Math.random()</code></p>
+        </header>
+
+        <div class="opcoes-usuario">
+            <button onclick="jogar('pedra')" data-tooltip="Pedra">✊</button>
+            <button onclick="jogar('papel')" data-tooltip="Papel">✋</button>
+            <button onclick="jogar('tesoura')" data-tooltip="Tesoura">✌️</button>
+        </div>
+
+        <div id="placar" class="placar escondido">
+            <div class="display-jogada">
+                <div class="jogada">
+                    <span>Você</span>
+                    <div id="voce-area" class="icone-jogada"></div>
+                </div>
+                <div class="vs">VS</div>
+                <div class="jogada">
+                    <span>Computador</span>
+                    <div id="cpu-area" class="icone-jogada"></div>
+                </div>
+            </div>
+            <div id="mensagem" class="mensagem"></div>
+            <button onclick="location.reload()" class="btn-reset">Tentar outra 🔄️</button>
+        </div>
+
+        <footer>
+            &copy; Nathan Funari - Atividade 7 - PWEB
+        </footer>
+    </div>
+
+</body>
+</html>

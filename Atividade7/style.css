@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #1e1e2e;
+    color: #cdd6f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    background-color: #313244;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    width: 90%;
+    max-width: 500px;
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: #89b4fa;
+    margin-bottom: 10px;
+}
+
+.subtitulo {
+    color: #a6adc8;
+    margin-bottom: 30px;
+}
+
+.opcoes-usuario {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.opcoes-usuario button {
+    position: relative;
+    font-size: 2.5rem;
+    background: #45475a;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.opcoes-usuario button:hover {
+    transform: translateY(-5px);
+    border-color: #89b4fa;
+    background-color: #585b70;
+}
+
+.opcoes-usuario button:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #181825;
+    color: #89b4fa;
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    border: 1px solid #45475a;
+    animation: fadeIn 0.2s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to { opacity: 1; transform: translate(-50%, 0); }
+}
+
+.placar {
+    border-top: 1px solid #45475a;
+    padding-top: 25px;
+}
+
+.placar.escondido { display: none; }
+
+.display-jogada {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.jogada {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icone-jogada {
+    font-size: 3rem;
+    background-color: #181825;
+    width: 80px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 12px;
+    margin-top: 10px;
+}
+
+.vs {
+    font-weight: bold;
+    color: #f38ba8;
+}
+
+.mensagem {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    padding: 10px;
+}
+
+.ganhou { color: #a6e3a1; }
+.perdeu { color: #f38ba8; }
+.empate { color: #f9e2af; }
+
+.btn-reset {
+    background-color: #89b4fa;
+    color: #11111b;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-reset:hover { background-color: #b4befe; }
+
+footer {
+    margin-top: 40px;
+    font-size: 0.75rem;
+    color: #6c7086;
+    border-top: 1px solid #45475a;
+    padding-top: 20px;
+}
