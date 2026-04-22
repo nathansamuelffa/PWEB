@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pesquisa de Satisfação - Cinema</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>🎬 CineSatisfação</h1>
+            <div class="progress-bar">
+                <div id="progress-fill" style="width: 0%"></div>
+            </div>
+            <p><span id="contador">0</span> de 45 respostas</p>
+        </header>
+
+        <main>
+            <form id="formPesquisa">
+                <div class="input-group">
+                    <label for="idade">Idade</label>
+                    <input type="number" id="idade" min="1" max="120" placeholder="Ex: 25" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="sexo">Sexo</label>
+                    <select id="sexo" required>
+                        <option value="" disabled selected>Selecione...</option>
+                        <option value="feminino">Feminino</option>
+                        <option value="masculino">Masculino</option>
+                        <option value="outros">Outros</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="opiniao">Sua Opinião</label>
+                    <select id="opiniao" required>
+                        <option value="" disabled selected>O que achou?</option>
+                        <option value="4">(4) Ótimo</option>
+                        <option value="3">(3) Bom</option>
+                        <option value="2">(2) Regular</option>
+                        <option value="1">(1) Péssimo</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="btnEnviar">Registrar Voto</button>
+            </form>
+
+            <section id="dashboard" class="hidden">
+                <h2>📊 Estatísticas</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span>Média Idade</span>
+                        <strong id="res-media">0</strong>
+                    </div>
+                    <div class="stat-card">
+                        <span>Mais Velho</span>
+                        <strong id="res-velho">0</strong>
+                    </div>
+                    <div class="stat-card">
+                        <span>Mais Novo</span>
+                        <strong id="res-novo">0</strong>
+                    </div>
+                    <div class="stat-card">
+                        <span>Péssimo</span>
+                        <strong id="res-pessimo">0</strong>
+                    </div>
+                </div>
+                <div class="stat-footer">
+                    <p>Aprovação (Ótimo/Bom): <strong id="res-porcentagem">0%</strong></p>
+                    <p id="res-perfil">F: 0 | M: 0 | O: 0</p>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; Nathan Funari - PWEB</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
