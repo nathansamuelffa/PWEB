@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade 14 - Transformar Texto</title>
+    <script>
+        function transformarTexto(modo) {
+            // Obtém o elemento do input de texto
+            var campoTexto = document.getElementById("idTexto");
+            
+            if (modo === 'maiusculo') {
+                campoTexto.value = campoTexto.value.toUpperCase();
+            } else if (modo === 'minusculo') {
+                campoTexto.value = campoTexto.value.toLowerCase();
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div align="center" style="margin-top: 50px;">
+        <h2>Transformador de Texto</h2>
+        
+        <label for="idTexto">Digite seu texto:</label><br>
+        <input type="text" id="idTexto" size="50" placeholder="Digite algo aqui...">
+        
+        <br><br>
+
+        <input type="radio" name="opcaoTransformar" id="idMaiusculo" onclick="transformarTexto('maiusculo')">
+        <label for="idMaiusculo">Transformar em Maiúsculas</label>
+
+        <input type="radio" name="opcaoTransformar" id="idMinusculo" onclick="transformarTexto('minusculo')">
+        <label for="idMinusculo">Transformar em Minúsculas</label>
+        
+        <br><br>
+        <input type="reset" value="Limpar" onclick="location.reload()">
+    </div>
+
+</body>
+</html>
