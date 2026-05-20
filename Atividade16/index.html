@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 16 - Cursos Fatec Sorocaba</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .box {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        select {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 4px;
+            width: 100%;
+            margin-top: 15px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Selecione um Curso da FATEC Sorocaba</h2>
+    <select id="cursos" onchange="abrirCurso()">
+        <option value="">-- Escolha um curso --</option>
+        <option value="ads">Análise e Desenvolvimento de Sistemas</option>
+        <option value="ea">Eletrônica Automotiva</option>
+        <option value="fm">Fabricação Mecânica</option>
+        <option value="gq">Gestão da Qualidade</option>
+        <option value="log">Logística</option>
+        <option value="pm">Polímeros</option>
+        <option value="sb">Sistemas Biomédicos</option>
+    </select>
+</div>
+
+<script>
+    // Objeto com informações que popularão a nova janela dinamicamente
+    const infoCursos = {
+        ads: { titulo: "Análise e Desenvolvimento de Sistemas", desc: "Focado em desenvolvimento de softwares, sistemas web e mobile, banco de dados e engenharia de software." },
+        ea: { titulo: "Eletrônica Automotiva", desc: "Voltado para sistemas eletrônicos embarcados em veículos, diagnósticos automotivos e inovação na indústria automobilística." },
+        fm: { titulo: "Fabricação Mecânica", desc: "Ensina processos de usinagem, conformação, planejamento de produção mecânica e controle de qualidade." },
+        gq: { titulo: "Gestão da Qualidade", desc: "Foco na otimização de processos industriais e de serviços, auditorias, certificações ISO e melhoria contínua." },
+        log: { titulo: "Logística", desc: "Aborda cadeia de suprimentos (Supply Chain), transportes, armazenamento, comércio exterior e modais logísticos." },
+        pm: { titulo: "Polímeros", desc: "Estudo da transformação de plásticos e borrachas, desenvolvimento de novos materiais e reciclagem industrial." },
+        sb: { titulo: "Sistemas Biomédicos", desc: "Gerenciamento, calibração e manutenção de equipamentos médicos e hospitalares de alta tecnologia." }
+    };
+
+    function abrirCurso() {
+        const select = document.getElementById("cursos");
+        const cursoChave = select.value;
+
+        if (cursoChave === "") return;
+
+        const cursoSelecionado = infoCursos[cursoChave];
+
+        // Caixa de confirmação
+        const confirmar = confirm(`Deseja realmente abrir as informações do curso: ${cursoSelecionado.titulo}?`);
+
+        if (confirmar) {
+            // Abre uma nova janela vazia com as dimensões solicitadas
+            const novaJanela = window.open("", "_blank", "width=600,height=300,scrollbars=yes");
+            
+            // Escreve o conteúdo HTML dentro da nova janela
+            novaJanela.document.write(`
+                <!DOCTYPE html>
+                <html lang="pt-BR">
+                <head>
+                    <title>${cursoSelecionado.titulo}</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; padding: 20px; background-color: #fff; color: #333; line-height: 1.6;}
+                        h2 { color: #b22222; border-bottom: 2px solid #b22222; padding-bottom: 5px; }
+                        p { font-size: 16px; }
+                        button { margin-top: 15px; padding: 5px 10px; cursor: pointer; }
+                    </style>
+                </head>
+                <body>
+                    <h2>FATEC Sorocaba - ${cursoSelecionado.titulo}</h2>
+                    <p><strong>Descrição do Curso:</strong> ${cursoSelecionado.desc}</p>
+                    <p><em>Janela com tamanho regulado em 600x300 pixels.</em></p>
+                    <button onclick="window.close()">Fechar Janela</button>
+                </body>
+                </html>
+            `);
+        }
+
+        // Reseta o select para a opção padrão
+        select.value = "";
+    }
+</script>
+
+</body>
+</html>

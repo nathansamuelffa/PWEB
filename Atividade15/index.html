@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atividade 15 - Validação de Formulário</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #5cadd5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 500px;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            margin: 0 auto;
+        }
+        h2 { text-align: center; color: #333; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input[type="text"], input[type="email"], textarea {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .radio-group { margin-top: 5px; }
+        
+        /* Grupo de botões lado a lado */
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+        button {
+            flex: 1;
+            padding: 10px;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .btn-submit {
+            background-color: #28a745;
+        }
+        .btn-submit:hover { 
+            background-color: #218838; 
+        }
+        .btn-clear {
+            background-color: #dc3545;
+        }
+        .btn-clear:hover { 
+            background-color: #bd2130; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Formulário de Feedback</h2>
+    <p>(*) Campo obrigatório</p>
+    <form name="nomeform" onsubmit="return validar()">
+        <div class="form-group">
+            <label for="nome">Nome:*</label>
+            <input type="text" id="nome" name="nome">
+        </div>
+
+        <div class="form-group">
+            <label for="email">E-mail:*</label>
+            <input type="email" id="email" name="email">
+        </div>
+
+        <div class="form-group">
+            <label for="comentario">Comentário:*</label>
+            <textarea id="comentario" name="comentario" rows="4"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Primeira vez visitando a página? (Pesquisa)*</label>
+            <div class="radio-group">
+                <input type="radio" id="sim" name="pesquisa" value="sim"> <label style="display:inline;" for="sim">Sim</label>
+                <input type="radio" id="nao" name="pesquisa" value="nao"> <label style="display:inline;" for="nao">Não</label>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <button type="submit" class="btn-submit">Enviar</button>
+            <button type="reset" class="btn-clear">Limpar</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    function validar() {
+        const nome = document.nomeform.nome.value;
+        const comentario = document.nomeform.comentario.value;
+        
+        // Utilizando document.nomeform.elements[] para o campo de rádio
+        const radios = document.nomeform.elements["pesquisa"];
+        let pesquisaSelecionada = "";
+
+        for (let i = 0; i < radios.length; i++) {
+            if (radios[i].checked) {
+                pesquisaSelecionada = radios[i].value;
+                break;
+            }
+        }
+
+        // Validação de Nome
+        if (nome.length < 10) {
+            alert("O nome não pode ter menos que 10 caracteres.");
+            return false;
+        }
+
+        // Validação de Comentário
+        if (comentario.length < 20) {
+            alert("O comentário deve ter no mínimo 20 caracteres.");
+            return false;
+        }
+
+        // Validação de Pesquisa (Rádio)
+        if (pesquisaSelecionada === "") {
+            alert("O campo Pesquisa é obrigatório.");
+            return false;
+        }
+
+        // Mensagens da Pesquisa
+        if (pesquisaSelecionada === "nao") {
+            alert("Que bom que você voltou a visitar esta página!");
+        } else {
+            alert("Volte sempre à esta página!");
+        }
+
+        return true; 
+    }
+</script>
+
+</body>
+</html>
