@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "Exercicio de criacao de package usando npm",
   "license": "ISC",
-  "author": "Nihil",
+  "author": "Nathan",
   "type": "commonjs",
   "main": "index.js",
   "scripts": {
